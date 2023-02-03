@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Zen Maru Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Zen_Maru_subset.woff2') format('woff2'),
+    url('/fonts/Zen_Maru_subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Zen Maru Gothic';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Zen_Maru_subset_bold.woff2') format('woff2'),
+    url('/fonts/Zen_Maru_subset_bold.woff') format('woff');
+}
+
+:root {
+  --accent: 124, 58, 237;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    #da62c4 30%,
+    white 60%
+  );
+}
+
+html {
+  background-color: #ffffff;
+  color-scheme: light;
+}
+
+body {
+  font-family: 'Zen Maru Gothic', system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}

@@ -1,40 +1,85 @@
 ---
+import '@styles/reset.scss';
+import '@styles/global.scss';
+
 export interface Props {
-  title: string;
+  title?: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
+
+const baseTitle = 'SUZUKI SOSAKU - Webサイト制作・Webフロントエンド開発';
+const baseDescription = '仮のデスクリプション';
+const ogImageSrc = ''; // TODO: 準備する
+const ogImageAlt = ''; // TODO: 準備する
+const ogSiteName = 'SUZUKI SOSAKU ポートフォリオ';
+const ogUrl = ''; // TODO: 準備する
+
+const getTitle = () => (title ? `title | ${baseTitle}` : baseTitle);
+const getDescription = () => description || baseDescription; // TODO: ちゃんと考えましょう
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja" class="no-js">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- <link rel="icon" href="/images/favicon.ico" /> -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- 180*180? 192px? -->
+    <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+
+    <!-- for Safari -->
+    <!-- <link rel="mask-icon" href="/icon.svg" color="blue"> -->
+
+    <!-- for Android -->
+    <!-- <link rel="manifest" href="/my.webmanifest"> -->
+
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{getTitle()}</title>
+
+    <!-- 検索エンジンのクロールとインデックス作成の動作を制御 -->
+    <meta name="robots" content="index,follow" /><!-- すべての検索エンジン用 -->
+    <meta name="googlebot" content="index,follow" /><!-- Google固有 -->
+
+    <meta name="google" content="notranslate" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="x-dns-prefetch-control" content="off" />
+
+    <meta name="description" content={getDescription()} />
+
+    <meta property="og:title" content={getTitle()} />
+    <meta property="og:description" content={getDescription()} />
+    <meta property="og:image" content={ogImageSrc} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:site_name" content={ogSiteName} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={ogUrl} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="theme-color" content="#222222" />
+
+    {/* Zen Maru Gothic のフォントサブセットをプリロード */}
+    <link
+      rel="preload"
+      as="font"
+      href="/fonts/Zen_Maru_subset.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="/fonts/Zen_Maru_subset_bold.woff2"
+      crossorigin
+    />
   </head>
   <body>
     <slot />
   </body>
 </html>
-<style lang="scss" is:global>
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    background-color: #f6f6f6;
-  }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-</style>
