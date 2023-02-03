@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prettify": "prettier --write ./src"
   },
   "dependencies": {
     "@astrojs/image": "^0.14.0",
@@ -18,6 +19,8 @@
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "postcss-preset-env": "^8.0.1",
+    "prettier": "^2.8.3",
+    "prettier-plugin-astro": "^0.8.0",
     "sass": "^1.58.0"
   }
 }
