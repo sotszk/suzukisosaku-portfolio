@@ -1,0 +1,148 @@
+<div class="wrapper">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-heading">
+        <span class="c-text-gradient">SERVICE</span>
+      </h2>
+      <p class="section-lead">
+        SUZUKI SOSAKUでは、以下のお仕事を承っております。<br
+          class="u-hidden-over-sm"
+        />お気軽にご相談ください。
+      </p>
+    </header>
+
+    <div class="section-body">
+      <ul class="service-items">
+        <li class="service-item">
+          <div class="service-item__inner">
+            <h3>Webサイト制作</h3>
+            <p>ディレクション、デザイン、コーディングを一括で行います</p>
+          </div>
+        </li>
+        <li class="service-item">
+          <div class="service-item__inner">
+            <h3>コーディング</h3>
+            <p>WebサイトやWebアプリのコーディング・実装</p>
+          </div>
+        </li>
+        <li class="service-item">
+          <div class="service-item__inner">
+            <h3>フロントエンド開発</h3>
+            <p>Web フロントエンド開発</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="service-details">
+        <button class="c-button-border-gradient">
+          <span class="c-text-gradient"
+            >技術スタックをみる<br
+              class="u-hidden-over-sm"
+            />（制作・開発会社向け）</span
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @import '../styles/breakpoint.scss';
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    @media (width > $breakpoint-sm) {
+      padding-top: 96px;
+      padding-bottom: 96px;
+    }
+    @media (height > 700px) {
+      height: 100vh;
+    }
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    @media (width > $breakpoint-sm) {
+      gap: 64px;
+    }
+  }
+
+  .section-heading {
+    font-family: var(--font-family-special);
+    font-size: var(--fs-2xl);
+    @media (width > $breakpoint-sm) {
+      font-size: var(--fs-4xl);
+    }
+  }
+
+  .section-lead {
+    font-size: var(--fs-md);
+    @media (width > $breakpoint-sm) {
+      font-size: var(--fs-lg);
+    }
+  }
+
+  .section-body {
+    margin: auto;
+    margin-top: 48px;
+    @media (width > $breakpoint-sm) {
+      margin-top: 80px;
+    }
+  }
+
+  .service-items {
+    display: grid;
+    gap: 16px;
+    @media (width > $breakpoint-sm) {
+      gap: 16px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (width > $breakpoint-md) {
+      gap: 32px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .service-item {
+    border-radius: 14px;
+    overflow: visible;
+    background-image: var(--gradient-3);
+    color: var(--text-gray);
+    padding: 2px;
+  }
+
+  .service-item__inner {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    padding: 16px;
+    height: 100%;
+
+    h3 {
+      font-size: var(--fs-lg);
+      font-weight: 400;
+      text-align: center;
+      @media (width > $breakpoint-sm) {
+        font-size: var(--fs-2xl);
+      }
+    }
+    p {
+      margin-top: 16px;
+    }
+  }
+
+  .service-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    @media (width > $breakpoint-sm) {
+      margin-top: 64px;
+    }
+  }
+</style>

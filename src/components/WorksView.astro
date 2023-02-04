@@ -1,0 +1,163 @@
+<div class="wrapper">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-heading">
+        <span class="c-text-gradient">WORKS</span>
+      </h2>
+      <p class="section-lead">
+        現在までの制作実績の一部を掲載しています。<br />
+        クリックすると詳細をご覧いただけます。
+      </p>
+    </header>
+
+    <div class="section-body">
+      <div class="items">
+        <div class="item">
+          <a href="/" class="card">
+            <div class="card__inner">
+              <img
+                class="card__image"
+                src="/images/example_screenshot.png"
+                alt=""
+              />
+            </div>
+            <div class="card__info">
+              <h3>SUZUKI SOSAKU</h3>
+              <p>Design / Coding</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="item">
+          <a href="/" class="card">
+            <div class="card__inner">
+              <img
+                class="card__image"
+                src="/images/example_screenshot.png"
+                alt=""
+              />
+            </div>
+            <div class="card__info">
+              <h3>SUZUKI SOSAKU</h3>
+              <p>Design / Coding</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @import '../styles/breakpoint.scss';
+
+  .wrapper {
+    background-color: #f8f8f8;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    @media (width > $breakpoint-sm) {
+      padding-top: 96px;
+      padding-bottom: 96px;
+    }
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    @media (width > $breakpoint-sm) {
+      gap: 64px;
+    }
+  }
+
+  .section-heading {
+    font-family: var(--font-family-special);
+    font-size: var(--fs-2xl);
+    @media (width > $breakpoint-sm) {
+      font-size: var(--fs-4xl);
+    }
+  }
+
+  .section-lead {
+    font-size: var(--fs-md);
+    @media (width > $breakpoint-sm) {
+      font-size: var(--fs-lg);
+    }
+  }
+
+  .section-body {
+    margin-top: 48px;
+    @media (width > $breakpoint-sm) {
+      margin-top: 80px;
+    }
+  }
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    @media (width > $breakpoint-sm) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+  }
+
+  .item {
+  }
+
+  .card {
+    display: block;
+    border-radius: 14px;
+    overflow: visible;
+    background-image: var(--gradient-3);
+    position: relative;
+    z-index: 1;
+    padding: 5px;
+    transition: all 0.2s ease;
+    &::after {
+      position: absolute;
+      content: '';
+      top: 20px;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+      transform: scale(0.9);
+      filter: blur(25px);
+      background: #f7ba2b;
+      background-image: var(--gradient-3);
+      transition: opacity 0.5s;
+    }
+    &:where(:hover)::after {
+      opacity: 0;
+    }
+    &:where(:hover) .card__image {
+      filter: brightness(0.6);
+    }
+  }
+  .card__inner {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .card__image {
+    aspect-ratio: 5 / 3;
+    object-fit: cover;
+    transition: filter 0.2s ease;
+  }
+  .card__info {
+    color: white;
+    padding: 8px;
+
+    h3 {
+      line-height: 1.2;
+      font-weight: 400;
+      font-size: var(--fs-lg);
+    }
+    p {
+      font-size: var(--fs-sm);
+    }
+  }
+</style>

@@ -12,7 +12,7 @@
 @font-face {
   font-family: 'Zen Maru Gothic';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   font-display: swap;
   src: url('/fonts/Zen_Maru_subset_bold.woff2') format('woff2'),
     url('/fonts/Zen_Maru_subset_bold.woff') format('woff');
@@ -28,10 +28,16 @@
   --fs-xs: 0.75rem; // 12px
   --fs-sm: 0.875rem; // 14px
   --fs-lg: 1.125rem; // 18px
+  --fs-xl: 1.25rem; // 20px
+  --fs-2xl: 1.5rem; // 24px;
+  --fs-3xl: 2rem; // 32px;
+  --fs-4xl: 2.5rem; // 40px;
 
   --bg-white: #fff;
 
   --text-black: #222;
+  --text-gray: #383838;
+  --text-white: #fff;
 
   --container-width: 1080px;
 
@@ -40,6 +46,26 @@
   --breakpoint-lg: $breakpoint-lg;
   --breakpoint-xl: $breakpoint-xl;
   --breakpoint-2xl: $breakpoint-2xl;
+
+  // first view の h1
+  --gradient-1: linear-gradient(
+    90deg,
+    rgba(243, 192, 60, 0.8) 0%,
+    rgba(255, 78, 22, 0.8) 46.22%,
+    rgba(51, 12, 160, 0.8) 92.45%
+  );
+
+  // global header, footer
+  --gradient-2: linear-gradient(
+    90deg,
+    rgba(208, 79, 110, 0.64) -5.65%,
+    rgba(183, 177, 49, 0.646667) 47.68%,
+    rgba(42, 207, 178, 0.624) 105.65%
+  );
+
+  // border gradient button
+  // border gradient box
+  --gradient-3: linear-gradient(90deg, #fb2222 -8.76%, #6c27ff 112.77%);
 }
 
 :where(html, body) {
@@ -48,7 +74,7 @@
 
 html {
   background-color: var(--bg-white);
-  color: var(--text-black);
+  color: var(--text-gray);
   color-scheme: light;
 }
 
@@ -61,7 +87,7 @@ body {
 }
 
 a {
-  color: var(--text-black);
+  color: var(--text-gray);
   text-decoration: none;
 }
 

@@ -1,0 +1,129 @@
+---
+import { Image } from '@astrojs/image/components';
+---
+
+<div class="wrapper">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-heading">
+        <span class="c-text-gradient">PROFILE</span>
+      </h2>
+      <p class="section-lead">制作者プロフィール</p>
+    </header>
+
+    <div class="section-body">
+      <div class="profile-stack">
+        <div class="profile-stack__image">
+          <Image
+            class="profile-img"
+            src="/images/profile_cat.jpg"
+            width={120}
+            height={120}
+            alt="プロフィール画像"
+          />
+        </div>
+        <div class="profile-stack__description">
+          <p class="profile-name">鈴木壮大（すずきそうた）</p>
+          <p class="profile-summary">
+            1986年生まれ。フリーランスWebデザイナー/エンジニア。<br />
+            2016年より独学からWeb業界へ入り、東京のWeb制作会社へ入社、その後留学をへて福岡へ移住。<br
+            />
+            福岡のスタートアップ三社でフロントエンドエンジニアとして業務に従事。2023年にフリーランスへ転身。
+          </p>
+        </div>
+      </div>
+
+      <div class="nav-contact">
+        <a href="/contact" class="c-button-border-gradient">
+          <span class="c-text-gradient">ご相談はこちらから</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <style lang="scss">
+    @import '../styles/breakpoint.scss';
+
+    .wrapper {
+      padding-top: 48px;
+      padding-bottom: 48px;
+      @media (width > $breakpoint-sm) {
+        padding-top: 96px;
+        padding-bottom: 96px;
+      }
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+      @media (width > $breakpoint-sm) {
+        gap: 64px;
+      }
+    }
+
+    .section-heading {
+      font-family: var(--font-family-special);
+      font-size: var(--fs-2xl);
+      @media (width > $breakpoint-sm) {
+        font-size: var(--fs-4xl);
+      }
+    }
+
+    .section-lead {
+      font-size: var(--fs-md);
+      @media (width > $breakpoint-sm) {
+        font-size: var(--fs-lg);
+      }
+    }
+
+    .section-body {
+      margin: auto;
+      margin-top: 48px;
+      max-width: 600px;
+      @media (width > $breakpoint-sm) {
+        margin-top: 80px;
+      }
+    }
+
+    .profile-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      @media (width > $breakpoint-sm) {
+        flex-direction: row;
+        justify-content: center;
+        gap: 32px;
+      }
+    }
+
+    .profile-name {
+      font-weight: 600;
+    }
+
+    .profile-summary {
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+
+    .profile-img {
+      // border-radius: 62% 38% 45% 55% / 60% 52% 48% 40%;
+      border-radius: 50%;
+      width: 120px;
+      vertical-align: bottom;
+      @media (width > $breakpoint-sm) {
+        width: 200px;
+      }
+    }
+
+    .nav-contact {
+      margin-top: 48px;
+      text-align: center;
+      @media (width > $breakpoint-sm) {
+        margin-top: 80px;
+      }
+    }
+  </style>
+</div>

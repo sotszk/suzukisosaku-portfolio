@@ -1,0 +1,19 @@
+@import './breakpoint.scss';
+
+.u-hidden-under-sm {
+  @media (width <= $breakpoint-sm) {
+    display: none;
+  }
+}
+
+.u-hidden-under-md {
+  @media (width <= $breakpoint-md) {
+    display: none;
+  }
+}
+
+.u-hidden-over-sm {
+  @media (width > $breakpoint-sm) {
+    display: none;
+  }
+}
