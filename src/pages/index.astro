@@ -80,21 +80,6 @@ import Layout from '../layouts/Layout.astro';
       </section>
     </div>
   </main>
-  <footer>
-    <div class="container">
-      <nav>
-        <ul>
-          <li><a href="/#service">Service</a></li>
-          <li><a href="/#works">Works</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="under-footer">
-      <p>&copy; SUZUKI SOSAKU 2023</p>
-    </div>
-  </footer>
 </Layout>
 
 <style lang="scss">
@@ -107,15 +92,10 @@ import Layout from '../layouts/Layout.astro';
     // scroll-snap-align: start;
     // height: 100vh;
   }
-  .container {
-    margin: 0 auto;
-    padding: 16px;
-    max-width: 1080px;
-  }
   .copy {
     display: flex;
     flex-direction: column;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: var(--font-family-special);
   }
   .copy__main {
     order: 2;
