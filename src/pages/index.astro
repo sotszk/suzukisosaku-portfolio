@@ -4,25 +4,132 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
   <main>
-    <h1>Web Design and Frontend Dev</h1>
-    <p>Webサイト制作と、フロンエンド開発のお手伝いをしています</p>
+    <div class="snap-container">
+      <section class="section-first snap-container__item">
+        <div class="container">
+          <div class="copy">
+            <h1 class="copy__main">
+              <span class="text-gradient">SUZUKI SOSAKU</span>
+            </h1>
+            <p class="copy__above">Web Creation</p>
+          </div>
+          <p class="lead">
+            Webサイト制作と、フロンエンド開発のお手伝いをしています
+          </p>
+        </div>
+      </section>
+
+      <section id="concept" class="section-second snap-container__item">
+        <div class="container">
+          <h2>なんのためのWebサイト？</h2>
+          <div>
+            <p>SUZUKI SOSAKU は、お客様との対話を大事にしています。</p>
+
+            <p>
+              Webサイトを作りたいと考えるとき、<br />
+              そこには必ず「なんのためにWebサイトが必要か」という目的があるはずです。
+            </p>
+
+            <p>「目的」の裏には、何らかの課題がひそんでいます。</p>
+
+            <p>
+              まずは、十分に時間をかけてお客様にヒアリングさせていただき、<br />
+              お客様の持っている本質的な課題を発見するお手伝いをさせてください。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="service" class="section-third snap-container__item">
+        <div class="container">
+          <header>
+            <h2>Service</h2>
+            <p>
+              SUZUKI SOSAKU
+              では、以下のお仕事を承っております。お気軽にご相談ください。
+            </p>
+          </header>
+          <div>
+            <ul>
+              <li>
+                Webサイト制作（ディレクション、デザイン、コーディングを一括で）
+              </li>
+              <li>WebサイトやWebアプリのコーディング・実装</li>
+              <li>Web フロントエンド開発（リソース提供）</li>
+            </ul>
+
+            <button>技術スタックをみる（制作・開発会社向け）</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="works" class="section-fourth snap-container__item">
+        <div class="container">
+          <header>
+            <h2>Works</h2>
+            <p>
+              現在までの制作実績の一部を掲載しています。<br />
+              クリックすると詳細をご覧いただけます。
+            </p>
+          </header>
+          <div>
+            <div>item 1</div>
+            <div>item 2</div>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
+  <footer>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="/#service">Service</a></li>
+          <li><a href="/#works">Works</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="under-footer">
+      <p>&copy; SUZUKI SOSAKU 2023</p>
+    </div>
+  </footer>
 </Layout>
 
 <style lang="scss">
-  main {
+  .snap-container {
+    // scroll-snap-type: y mandatory;
+    // overflow: auto;
+    // max-height: 100vh;
+  }
+  .snap-container__item {
+    // scroll-snap-align: start;
+    // height: 100vh;
+  }
+  .container {
     margin: 0 auto;
     padding: 16px;
     max-width: 1080px;
   }
-  h1 {
-    display: inline-block;
+  .copy {
+    display: flex;
+    flex-direction: column;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  .copy__main {
+    order: 2;
     font-size: 2.5rem;
     font-weight: 800;
     margin: 0;
+    @media screen and (min-width: 640px) {
+      font-size: 4rem;
+    }
+  }
+  .text-gradient {
     color: transparent;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
     background-color: #ff4e16;
     background-image: linear-gradient(
       90deg,
@@ -30,16 +137,28 @@ import Layout from '../layouts/Layout.astro';
       rgba(255, 78, 22, 0.8) 46.22%,
       rgba(51, 12, 160, 0.8) 92.45%
     );
-    background-clip: text;
+  }
+  .copy__above {
+    order: 1;
+    font-weight: 800;
+    font-size: 1rem;
     @media screen and (min-width: 640px) {
-      font-size: 4rem;
+      font-size: 1.125rem;
     }
   }
-  p {
+  .lead {
     margin-top: 8px;
     font-size: 0.875rem;
     @media screen and (min-width: 640px) {
       font-size: 1rem;
     }
+  }
+
+  .section-second {
+    background-color: #f9f9f9;
+  }
+
+  .section-fourth {
+    background-color: #f9f9f9;
   }
 </style>

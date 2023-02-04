@@ -1,4 +1,6 @@
 ---
+import GlobalHeader from '@components/GlobalHeader.astro';
+
 import '@styles/reset.scss';
 import '@styles/global.scss';
 
@@ -83,6 +85,9 @@ const getDescription = () => description || baseDescription; // TODO: ちゃん�
     />
   </head>
   <body>
-    <slot />
+    <div class="page">
+      <GlobalHeader />
+      <slot />
+    </div>
   </body>
 </html>
