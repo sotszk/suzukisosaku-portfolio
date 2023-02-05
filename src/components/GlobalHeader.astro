@@ -19,7 +19,7 @@
             </g>
           </g>
         </svg>
-        <div>SUZUKI SOSAKU</div>
+        <div class="logo-name">SUZUKI SOSAKU</div>
       </a>
 
       <button class="menu-button">menu</button>
@@ -28,16 +28,16 @@
         <div class="nav-container">
           <ul class="nav-items">
             <li class="nav-item">
-              <a class="nav-item__link" href="/#service">service</a>
+              <a class="nav-item__link" href="/#service">SERVICE</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item__link" href="/#works">works</a>
+              <a class="nav-item__link" href="/#works">WORKS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item__link" href="/#profile">profile</a>
+              <a class="nav-item__link" href="/#profile">PROFILE</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item__link" href="/contact">contact</a>
+              <a class="nav-item__link" href="/contact">CONTACT</a>
             </li>
           </ul>
           <!-- <div class="github">
@@ -61,7 +61,7 @@
       content: '';
       display: block;
       width: 100%;
-      height: 5px;
+      height: 1px;
       background-image: var(--gradient-2);
     }
   }
@@ -73,6 +73,9 @@
     @media (width > $breakpoint-sm) {
       height: 76px;
     }
+  }
+  .logo-name {
+    font-weight: 900;
   }
   .logo {
     flex: 0 1 auto;
@@ -110,7 +113,16 @@
     gap: 40px;
   }
   .nav-item {
+    font-size: var(--fs-md);
+    font-weight: var(--fw-secondary);
   }
   .nav-item__link {
+    &:hover {
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-color: #ff4e16;
+      background-image: var(--gradient-3);
+    }
   }
 </style>

@@ -1,26 +1,39 @@
 @import 'breakpoint.scss';
 
 @font-face {
-  font-family: 'Zen Maru Gothic';
+  font-family: 'Gen Jyuu Gothic L';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/Zen_Maru_subset.woff2') format('woff2'),
-    url('/fonts/Zen_Maru_subset.woff') format('woff');
+  src: url('/fonts/genjyuul_normal_subset.woff2') format('woff2'),
+    url('/fonts/genjyuul_normal_subset.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'Zen Maru Gothic';
+  font-family: 'Gen Jyuu Gothic L';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/Zen_Maru_subset_bold.woff2') format('woff2'),
-    url('/fonts/Zen_Maru_subset_bold.woff') format('woff');
+  src: url('/fonts/genjyuul_medium_subset.woff2') format('woff2'),
+    url('/fonts/genjyuul_medium_subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gen Jyuu Gothic L';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/genjyuul_heavy_subset.woff2') format('woff2'),
+    url('/fonts/genjyuul_heavy_subset.woff') format('woff');
 }
 
 :root {
-  --font-family-default: 'Zen Maru Gothic', system-ui, sans-serif;
-  --font-family-special: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-family-default: 'Gen Jyuu Gothic L', system-ui, sans-serif, sans-serif;
+  --font-family-special: 'Gen Jyuu Gothic L', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+  --fw-default: 400;
+  --fw-secondary: 600;
+  --fw-special: 900;
 
   --fs-default: 1rem; // 16px
   --fs-3xs: 0.625rem; // 10px
@@ -48,12 +61,12 @@
   --breakpoint-2xl: $breakpoint-2xl;
 
   // first view の h1
-  --gradient-1: linear-gradient(
-    90deg,
-    rgba(243, 192, 60, 0.8) 0%,
-    rgba(255, 78, 22, 0.8) 46.22%,
-    rgba(51, 12, 160, 0.8) 92.45%
-  );
+  // --gradient-1: linear-gradient(
+  //   90deg,
+  //   rgba(243, 192, 60, 0.8) 0%,
+  //   rgba(255, 78, 22, 0.8) 46.22%,
+  //   rgba(51, 12, 160, 0.8) 92.45%
+  // );
 
   // global header, footer
   --gradient-2: linear-gradient(

@@ -5,14 +5,16 @@
         <span class="text-gradient text-gradient--animated">SUZUKI SOSAKU</span>
       </h1>
       <p class="copy__above">
-        <span class="text-gradient">Web Design and Development</span>
+        <span class="text-gradient text-gradient--animated"
+          >Web Design & Development</span
+        >
       </p>
     </div>
 
     <p class="lead">Webサイト制作とフロントエンド開発を承っています</p>
 
     <div class="nav-next">
-      <button class="mouse">
+      <a href="/#concept" class="mouse">
         <svg
           width="31"
           height="42"
@@ -73,7 +75,7 @@
             </linearGradient>
           </defs>
         </svg>
-      </button>
+      </a>
     </div>
   </div>
 </div>
@@ -110,7 +112,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     background-color: #ff4e16;
-    background-image: var(--gradient-1);
+    background-image: var(--gradient-3);
     &.text-gradient--animated {
       background-size: 300%;
       animation: text-gradient-animate 5s 0s ease-in infinite alternate;
@@ -118,15 +120,15 @@
     @keyframes text-gradient-animate {
       0% {
         background-position-x: 0%;
-        background-position-y: 100%;
+        background-position-y: 30%;
       }
       50% {
-        background-position-x: 100%;
-        background-position-y: 0%;
+        background-position-x: 50%;
+        background-position-y: 80%;
       }
       100% {
-        background-position-x: 50%;
-        background-position-y: 50%;
+        background-position-x: 100%;
+        background-position-y: 70%;
       }
     }
   }
@@ -167,8 +169,7 @@
     // background-image: linear-gradient(#fff, #fff), var(--gradient-3);
     // background-origin: border-box;
     // background-clip: padding-box, border-box;
-    border: none;
-    background: transparent;
+    display: inline-block;
     animation: mouseLoop 4s ease 4s infinite;
   }
 

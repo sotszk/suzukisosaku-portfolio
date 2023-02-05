@@ -30,7 +30,8 @@ import ProfileView from '@components/ProfileView.astro';
     </section>
 
     <div class="thanks">
-      <p>最後までご覧頂き、ありがとうございました。</p>
+      <h2 class="thanks__heading">THANKS!</h2>
+      <p class="thanks__message">最後までご覧頂き、ありがとうございました。</p>
     </div>
   </main>
 </Layout>
@@ -39,13 +40,32 @@ import ProfileView from '@components/ProfileView.astro';
   @import '../styles/breakpoint.scss';
 
   .thanks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80vh;
     background-color: #f8f8f8;
     text-align: center;
     padding: 64px 0;
-    font-size: var(--fs-lg);
     @media (width > $breakpoint-sm) {
-      padding: 120px 0;
-      font-size: var(--fs-2xl);
+      padding: 80px 0;
+    }
+  }
+
+  .thanks__heading {
+    font-size: var(--fs-3xl);
+    font-weight: var(--fw-special);
+    @media (width > $breakpoint-sm) {
+      font-size: var(--fs-4xl);
+    }
+  }
+
+  .thanks__message {
+    margin-top: 64px;
+    font-size: var(--fs-md);
+    @media (width > $breakpoint-sm) {
+      margin-top: 80px;
+      font-size: var(--fs-lg);
     }
   }
 </style>
