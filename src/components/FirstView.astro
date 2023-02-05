@@ -1,82 +1,25 @@
 <div class="wrapper">
-  <div class="container">
-    <div class="copy">
-      <h1 class="copy__main">
-        <span class="text-gradient text-gradient--animated">SUZUKI SOSAKU</span>
-      </h1>
-      <p class="copy__above">
-        <span class="text-gradient text-gradient--animated"
-          >Web Design & Development</span
-        >
-      </p>
-    </div>
+  <div class="firstview">
+    <div class="firstview-container">
+      <div class="copy">
+        <h1 class="copy__main">
+          <span class="text-gradient text-gradient--animated"
+            >SUZUKI SOSAKU</span
+          >
+        </h1>
+        <p class="copy__above">
+          <span class="text-gradient text-gradient--animated"
+            >Web Design & Development</span
+          >
+        </p>
+      </div>
 
-    <p class="lead">Webサイト制作とフロントエンド開発を承っています</p>
-
-    <div class="nav-next">
-      <a href="/#concept" class="mouse">
-        <svg
-          width="31"
-          height="42"
-          viewBox="0 0 31 42"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          class="mouse__img"
-        >
-          <path
-            d="M29.9466 20.0597C29.9466 14.6221 28.9164 9.81974 26.7572 6.4104C24.6334 3.05707 21.3928 1 16.7361 1C11.88 1 8.27051 2.21089 5.83912 5.03986C3.37558 7.90623 1.94659 12.63 1.94659 20.0597C1.94659 26.3336 2.45194 31.5732 4.52849 35.2384C5.54919 37.04 6.95131 38.4613 8.88989 39.4427C10.8409 40.4305 13.3901 41 16.7361 41C21.2542 41 24.4428 39.6718 26.5697 36.5756C28.7607 33.3861 29.9466 28.1578 29.9466 20.0597Z"
-            stroke="url(#paint0_linear_23_94)"
-            stroke-width="2"></path>
-          <path
-            d="M15.8077 20.4934V31.4539"
-            stroke="url(#paint1_linear_23_94)"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
-          <path
-            d="M21.5289 25.9738L15.8077 31.454L10.0865 25.9738"
-            stroke="url(#paint2_linear_23_94)"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
-          <defs>
-            <linearGradient
-              id="paint0_linear_23_94"
-              x1="-1.68114"
-              y1="42"
-              x2="34.7787"
-              y2="42"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stop-color="#FB2222"></stop>
-              <stop offset="1" stop-color="#6C27FF"></stop>
-            </linearGradient>
-            <linearGradient
-              id="paint1_linear_23_94"
-              x1="15.7201"
-              y1="20.4934"
-              x2="16.9354"
-              y2="20.4934"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stop-color="#FB2222"></stop>
-              <stop offset="1" stop-color="#6C27FF"></stop>
-            </linearGradient>
-            <linearGradient
-              id="paint2_linear_23_94"
-              x1="9.0843"
-              y1="25.9738"
-              x2="22.9905"
-              y2="25.9738"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stop-color="#FB2222"></stop>
-              <stop offset="1" stop-color="#6C27FF"></stop>
-            </linearGradient>
-          </defs>
-        </svg>
-      </a>
+      <p class="lead">Webサイト制作 / コーディング / フロントエンド開発</p>
     </div>
+  </div>
+
+  <div class="nav-next">
+    <a href="/#concept" class="mouse"></a>
   </div>
 </div>
 
@@ -93,6 +36,14 @@
       min-height: calc(100vh - 76px);
     }
   }
+  .firstview {
+    position: relative;
+  }
+  .firstview-container {
+    max-width: 680px;
+    padding: 0 16px;
+    margin: 0 auto;
+  }
   .copy {
     display: flex;
     flex-direction: column;
@@ -100,11 +51,11 @@
   }
   .copy__main {
     order: 2;
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: var(--fs-4xl);
+    font-weight: var(--fw-exbold);
     margin: 0;
     @media (width > $breakpoint-sm) {
-      font-size: 4rem;
+      font-size: var(--fs-5xl);
     }
   }
   .text-gradient {
@@ -112,7 +63,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     background-color: #ff4e16;
-    background-image: var(--gradient-3);
+    background-image: var(--gradient-primary);
     &.text-gradient--animated {
       background-size: 300%;
       animation: text-gradient-animate 5s 0s ease-in infinite alternate;
@@ -134,10 +85,10 @@
   }
   .copy__above {
     order: 1;
-    font-weight: 800;
+    font-weight: var(--fw-bold);
     font-size: 1rem;
     @media (width > $breakpoint-sm) {
-      font-size: 1.125rem;
+      font-size: var(--fs-lg);
     }
   }
   .lead {
@@ -160,29 +111,32 @@
   }
 
   .mouse {
-    // background-color: white;
-    // padding: 12px 4px;
-    // width: 24px;
-    // height: 40px;
-    // border-radius: 50px;
-    // border: 3px double transparent;
-    // background-image: linear-gradient(#fff, #fff), var(--gradient-3);
-    // background-origin: border-box;
-    // background-clip: padding-box, border-box;
+    position: relative;
+    background-color: white;
+    padding: 12px 4px;
+    width: 24px;
+    height: 40px;
+    border-radius: 50px;
+    border: 3px double transparent;
+    background-image: linear-gradient(#fff, #fff), var(--gradient-primary);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     display: inline-block;
     animation: mouseLoop 4s ease 4s infinite;
   }
 
   @keyframes mouseLoop {
+    5% {
+      transform: translateY(10px);
+    }
     10% {
+      transform: translateY(0);
+    }
+    15% {
       transform: translateY(10px);
     }
     20% {
       transform: translateY(0);
     }
-  }
-
-  .mouse__img {
-    width: 30px;
   }
 </style>

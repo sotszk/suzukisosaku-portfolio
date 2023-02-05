@@ -31,9 +31,10 @@
   --font-family-default: 'Gen Jyuu Gothic L', system-ui, sans-serif, sans-serif;
   --font-family-special: 'Gen Jyuu Gothic L', 'Helvetica Neue', Helvetica, Arial,
     sans-serif;
+
   --fw-default: 400;
-  --fw-secondary: 600;
-  --fw-special: 900;
+  --fw-bold: 600;
+  --fw-exbold: 900;
 
   --fs-default: 1rem; // 16px
   --fs-3xs: 0.625rem; // 10px
@@ -45,6 +46,7 @@
   --fs-2xl: 1.5rem; // 24px;
   --fs-3xl: 2rem; // 32px;
   --fs-4xl: 2.5rem; // 40px;
+  --fs-5xl: 4rem; // 64px;
 
   --bg-white: #fff;
 
@@ -60,25 +62,16 @@
   --breakpoint-xl: $breakpoint-xl;
   --breakpoint-2xl: $breakpoint-2xl;
 
-  // first view の h1
-  // --gradient-1: linear-gradient(
-  //   90deg,
-  //   rgba(243, 192, 60, 0.8) 0%,
-  //   rgba(255, 78, 22, 0.8) 46.22%,
-  //   rgba(51, 12, 160, 0.8) 92.45%
-  // );
+  // border や text のグラデーション
+  --gradient-primary: linear-gradient(90deg, #fb2222 -8.76%, #6c27ff 112.77%);
 
-  // global header, footer
-  --gradient-2: linear-gradient(
+  // 主に背景として使うグラデーション
+  --gradient-secondary: linear-gradient(
     90deg,
     rgba(208, 79, 110, 0.64) -5.65%,
     rgba(183, 177, 49, 0.646667) 47.68%,
     rgba(42, 207, 178, 0.624) 105.65%
   );
-
-  // border gradient button
-  // border gradient box
-  --gradient-3: linear-gradient(90deg, #fb2222 -8.76%, #6c27ff 112.77%);
 }
 
 :where(html, body) {

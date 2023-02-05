@@ -1,0 +1,133 @@
+<button id="menu-button" class="menu-button"></button>
+<div id="sidemenu" class="sidemenu">
+  <nav class="nav">
+    <ul class="nav-items">
+      <li class="nav-item">
+        <a class="nav-item__link" href="/#service">SERVICE</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item__link" href="/#works">WORKS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item__link" href="/#profile">PROFILE</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item__link" href="/contact">CONTACT</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<style lang="scss">
+  @import '../styles/breakpoint.scss';
+
+  :root {
+    --animation-second: 0.2s;
+  }
+
+  .menu-button {
+    position: fixed;
+    z-index: 101;
+    top: 24px;
+    right: 24px;
+    border: 0;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    @media (width > $breakpoint-md) {
+      display: none;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: var(--gradient-primary);
+      border-radius: 3px;
+      transition: all var(--animation-second) ease-out;
+    }
+
+    &::before {
+      top: 12px;
+      right: 0;
+      height: 3px;
+      width: 32px;
+    }
+
+    &::after {
+      bottom: 12px;
+      right: 0;
+      height: 3px;
+      width: 24px;
+    }
+
+    &.is-active {
+      &::before {
+        top: 18px;
+        width: 40px;
+        transform: rotate(45deg);
+      }
+      &::after {
+        bottom: 18px;
+        width: 40px;
+        transform: rotate(135deg);
+      }
+    }
+  }
+
+  .sidemenu {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    height: 100vh;
+    right: 0;
+    width: 100%;
+    background-color: rgba(#fff, 0.8);
+    backdrop-filter: blur(6px);
+    visibility: hidden;
+    transform: translateY(-100%);
+    perspective: 500px;
+    transition: transform var(--animation-second) 0s,
+      visibility 0s var(--animation-second);
+    &.is-visible {
+      transform: translateY(0);
+      visibility: visible;
+      transition: transform var(--animation-second) 0s,
+        visibility var(--animation-second) 0s;
+    }
+  }
+  .nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .nav-items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+  .nav-item {
+    font-size: var(--fs-4xl);
+    font-weight: var(--fw-exbold);
+  }
+  .nav-item__link {
+    display: block;
+    padding: 32px 48px;
+  }
+</style>
+
+<script>
+  const menuButtonEl = document.getElementById('menu-button');
+  const sideMenuEl = document.getElementById('sidemenu');
+
+  if (menuButtonEl && sideMenuEl) {
+    menuButtonEl.addEventListener('click', (evt) => {
+      menuButtonEl.classList.toggle('is-active');
+      sideMenuEl.classList.toggle('is-visible');
+      evt.preventDefault();
+    });
+  }
+</script>

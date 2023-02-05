@@ -1,3 +1,7 @@
+---
+import MobileMenu from './MobileMenu.astro';
+---
+
 <header class="global-header">
   <div class="container">
     <div class="header-content">
@@ -22,36 +26,27 @@
         <div class="logo-name">SUZUKI SOSAKU</div>
       </a>
 
-      <button class="menu-button">menu</button>
-
       <nav class="nav">
-        <div class="nav-container">
-          <ul class="nav-items">
-            <li class="nav-item">
-              <a class="nav-item__link" href="/#service">SERVICE</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-item__link" href="/#works">WORKS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-item__link" href="/#profile">PROFILE</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-item__link" href="/contact">CONTACT</a>
-            </li>
-          </ul>
-          <!-- <div class="github">
-            <a
-              href="https://github.com/sotszk/suzukisosaku-portfolio"
-              target="_blank"
-              rel="noopener">GitHub</a
-            >
-          </div> -->
-        </div>
+        <ul class="nav-items">
+          <li class="nav-item">
+            <a class="nav-item__link" href="/#service">SERVICE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item__link" href="/#works">WORKS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item__link" href="/#profile">PROFILE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item__link" href="/contact">CONTACT</a>
+          </li>
+        </ul>
       </nav>
     </div>
   </div>
 </header>
+
+<MobileMenu />
 
 <style lang="scss">
   @import '../styles/breakpoint.scss';
@@ -62,7 +57,7 @@
       display: block;
       width: 100%;
       height: 1px;
-      background-image: var(--gradient-2);
+      background-image: var(--gradient-secondary);
     }
   }
   .header-content {
@@ -92,37 +87,31 @@
   :where(.logo-vector__left-path, .logo-vector__right-path) {
     fill: var(--text-gray);
   }
-  .menu-button {
-    @media (width > $breakpoint-sm) {
-      display: none;
-    }
-  }
+
   .nav {
-    @media (width <= $breakpoint-sm) {
+    align-self: strech;
+    @media (width <= $breakpoint-md) {
       display: none;
     }
-  }
-  .nav-container {
-    display: flex;
-    align-items: center;
-    gap: 32px;
   }
   .nav-items {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 24px;
   }
   .nav-item {
     font-size: var(--fs-md);
-    font-weight: var(--fw-secondary);
+    font-weight: var(--fw-bold);
   }
   .nav-item__link {
+    display: block;
+    padding: 4px 8px;
     &:hover {
       color: transparent;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       background-color: #ff4e16;
-      background-image: var(--gradient-3);
+      background-image: var(--gradient-primary);
     }
   }
 </style>
