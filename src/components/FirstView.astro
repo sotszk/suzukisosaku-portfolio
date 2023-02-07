@@ -19,7 +19,9 @@
   </div>
 
   <div class="nav-next">
-    <a href="/#concept" class="mouse"></a>
+    <a href="/#concept" class="mouse"
+      ><span class="c-text-gradient">NEXT</span></a
+    >
   </div>
 </div>
 
@@ -28,16 +30,20 @@
 
   .wrapper {
     position: relative;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 90px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     @media (width > $breakpoint-sm) {
-      min-height: calc(100vh - 76px);
+      min-height: calc(100vh - 110px);
     }
   }
   .firstview {
     position: relative;
+    top: -45px; // 目測値
+    @media (width > $breakpoint-sm) {
+      top: -57px;
+    }
   }
   .firstview-container {
     max-width: 680px;
@@ -118,11 +124,26 @@
     height: 40px;
     border-radius: 50px;
     border: 3px double transparent;
-    background-image: linear-gradient(#fff, #fff), var(--gradient-primary);
+    background-image: linear-gradient(rgba(#fff, 0.9), rgba(#fff, 0.9)),
+      var(--gradient-primary);
     background-origin: border-box;
     background-clip: padding-box, border-box;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     animation: mouseLoop 4s ease 4s infinite;
+    transition: box-shadow 0.2s 0.2s ease, width 0.2s 0s ease,
+      height 0.2s 0s ease, font-size 0.1s 0.2s ease;
+    font-size: 0;
+    &:hover {
+      box-shadow: 0px 0px 15.5px rgba(0, 0, 0, 0.051),
+        0px 0px 22.5px rgba(0, 0, 0, 0.048), 0px 0px 40px rgba(0, 0, 0, 0.07);
+      width: 60px;
+      height: 60px;
+      font-size: 1rem;
+      font-weight: var(--fw-bold);
+      animation: none;
+    }
   }
 
   @keyframes mouseLoop {

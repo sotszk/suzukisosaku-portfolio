@@ -69,3 +69,27 @@ import ProfileView from '@components/ProfileView.astro';
     }
   }
 </style>
+
+<script>
+  const anchorEls = document.querySelectorAll('a[href^="/#"], a[href^="#"]');
+
+  anchorEls.forEach((anchorEl) => {
+    anchorEl.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      const targetId = anchorEl
+        .getAttribute('href')
+        ?.split('/')
+        .find((str) => str[0] === '#');
+      if (!targetId) return;
+
+      const targetEl = document.querySelector(targetId);
+      if (!targetEl) return;
+
+      const rect = targetEl.getBoundingClientRect().top;
+      window.scrollTo({
+        top: rect + window.scrollY,
+        behavior: 'smooth',
+      });
+    });
+  });
+</script>
