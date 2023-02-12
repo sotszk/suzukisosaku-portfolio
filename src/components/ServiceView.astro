@@ -23,10 +23,13 @@
             </h3>
             <div class="service-item__paragraphs">
               <p class="service-item__paragraph">
-                ヒアリングからデザイン、コーディング、納品までワンストップで対応いたします。
+                Webサイトの制作を、企画から制作、納品、運用（アフターサポート）まで承っております。
               </p>
               <p class="service-item__paragraph">
-                納品後のアフターサポート期間は一ヶ月間設けさせて頂いております。
+                デザインの方針としまして、シンプル・合理的・すっきりした・奇をてらわないものを作るようにしています。
+              </p>
+              <p class="service-item__paragraph">
+                そのため、不必要と思われる動きの多いものや、装飾の多いきらびやかなものではなく、必要十分でシンプルなデザインをご提案させていただくことが多いと思います。
               </p>
             </div>
           </div>
@@ -38,19 +41,31 @@
             </div>
             <h3 class="service-item__heading">
               <span class="c-text-gradient"
-                >コーディング/フロントエンド開発
-              </span>
+                >コーディング / フロントエンド開発</span
+              >
             </h3>
             <div class="service-item__paragraphs">
-              <p class="service-item__paragraph">ぶらぶらぶら</p>
-              <p class="service-item__paragraph">らぐらぐら</p>
+              <p class="service-item__paragraph">
+                パフォーマンスに優れ、メンテナンス性の高いコーディングを行います。
+              </p>
+              <p class="service-item__paragraph">
+                Webサイトのコーディング、または React/Vue
+                などのフレームワークを使った
+                Webサービス・アプリケーションのフロントエンド開発のリソースとしてご利用ください。
+              </p>
+              <p class="service-item__paragraph">
+                ご利用をお考えの際は、ご相談いただく前に<a
+                  id="to-skills"
+                  href="#skills">技術スタック詳細</a
+                >をご確認ください。
+              </p>
             </div>
           </div>
         </li>
       </ul>
 
-      <div class="service-details">
-        <details class="details-container">
+      <div id="skills" class="service-details">
+        <details id="skills-details" class="details-container">
           <summary class="details-toggle-button">
             <span class="c-text-gradient"
               >技術スタックをみる<br
@@ -202,9 +217,9 @@
   .service-item__paragraphs {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 14px;
     @media (width > $breakpoint-sm) {
-      gap: 12px;
+      gap: 16px;
     }
   }
 
@@ -213,6 +228,13 @@
     line-height: 1.6;
     @media (width > $breakpoint-sm) {
       font-size: var(--fs-md);
+    }
+
+    > a {
+      color: #6c27ff;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -294,3 +316,16 @@
     font-size: var(--fs-sm);
   }
 </style>
+
+<script>
+  const anchorEl = document.querySelector('#to-skills');
+
+  if (anchorEl) {
+    const detailsEl = document.querySelector(
+      '#skills-details',
+    ) as HTMLDetailsElement;
+    anchorEl.addEventListener('click', () => {
+      detailsEl?.setAttribute('open', 'true');
+    });
+  }
+</script>

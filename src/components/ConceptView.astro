@@ -1,21 +1,20 @@
 <div class="wrapper">
   <div class="container">
-    <h2 class="section-heading">なんのためのWebサイト？</h2>
+    <h2 class="section-heading">シンプルでよいものを</h2>
+
     <div class="paragraphs">
-      <p class="p">SUZUKI SOSAKU は、お客様との対話を大事にしています。</p>
+      <p class="p">SUZUKI SOSAKU は、福岡を拠点とするWebデザイン事務所です。</p>
 
       <p class="p">
-        Webサイトを作りたいと考えるとき、<br />
-        そこには必ず「なんのためにWebサイトが必要か」という目的があるはずです。
+        主に、Webサイトの制作やコーディングのお仕事を承っております。
       </p>
 
-      <p class="p">「目的」の裏には、何らかの課題がひそんでいます。</p>
+      <p class="p">
+        企画から制作、納品までひとりで請け負っているため、制作会社などと比べるとコミュニケーションがスムーズに取れることや、スピーディでコストも抑えられるのがメリットです。
+      </p>
 
       <p class="p">
-        まずは、十分に時間をかけてお客様にヒアリングさせていただき、<br
-          class="u-hidden-under-sm"
-        />
-        お客様の持っている本質的な課題を発見するお手伝いをさせてください。
+        「シンプルでよいものを」というコンセプトに従って、実用的で必要十分なWebサイトをお作りいたします。
       </p>
     </div>
 
@@ -45,9 +44,13 @@
     }
   }
 
+  .container {
+    max-width: 640px;
+  }
+
   .section-heading {
     font-size: var(--fs-2xl);
-    font-weight: 400;
+    font-weight: var(--fw-default);
     text-align: center;
     @media (width > $breakpoint-sm) {
       font-size: var(--fs-4xl);
@@ -60,9 +63,8 @@
     gap: 24px;
     margin-top: 48px;
     @media (width > $breakpoint-sm) {
-      gap: 48px;
+      gap: 36px;
       margin-top: 96px;
-      text-align: center;
       font-size: var(--fs-lg);
     }
   }

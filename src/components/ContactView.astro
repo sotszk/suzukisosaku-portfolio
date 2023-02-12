@@ -71,8 +71,11 @@ import ExternalLink from './ExternalLink.astro';
     }
 
     :where(.section-body) > p {
-      font-size: var(--fs-xl);
+      font-size: var(--fs-lg);
       line-height: 1.7;
+      @media (width > $breakpoint-sm) {
+        font-size: var(--fs-xl);
+      }
     }
 
     .link {
