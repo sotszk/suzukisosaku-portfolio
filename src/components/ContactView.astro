@@ -1,0 +1,87 @@
+---
+import ExternalLink from './ExternalLink.astro';
+---
+
+<div class="wrapper">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-heading">
+        <span class="c-text-gradient">CONTACT</span>
+      </h2>
+      <p class="section-lead">お問い合わせ</p>
+    </header>
+
+    <div class="section-body">
+      <p>
+        このサイトでは、現在お問い合わせを受け付けておりません。<br />
+        <!-- TODO: 別のポートフォリオ（外部サイト）のお問い合わせページへ飛ばす -->
+        <a class="link" href="/" target="_blank" rel="noopener"
+          >こちらのフォーム<ExternalLink /></a
+        >よりお問い合わせください。
+      </p>
+    </div>
+  </div>
+
+  <style lang="scss">
+    @import '../styles/breakpoint.scss';
+
+    .wrapper {
+      padding-top: 48px;
+      padding-bottom: 48px;
+      background-color: #f8f8f8;
+      @media (width > $breakpoint-sm) {
+        padding-top: 96px;
+        padding-bottom: 96px;
+      }
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+      @media (width > $breakpoint-sm) {
+        gap: 32px;
+      }
+    }
+
+    .section-heading {
+      font-family: var(--font-family-special);
+      font-size: var(--fs-2xl);
+      @media (width > $breakpoint-sm) {
+        font-size: var(--fs-4xl);
+      }
+    }
+
+    .section-lead {
+      font-size: var(--fs-md);
+      @media (width > $breakpoint-sm) {
+        font-size: var(--fs-lg);
+      }
+    }
+
+    .section-body {
+      margin: auto;
+      margin-top: 48px;
+      max-width: 600px;
+      text-align: center;
+      @media (width > $breakpoint-sm) {
+        margin-top: 80px;
+      }
+    }
+
+    :where(.section-body) > p {
+      font-size: var(--fs-xl);
+      line-height: 1.7;
+    }
+
+    .link {
+      color: #6c27ff;
+      display: inline-flex;
+      align-items: center;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  </style>
+</div>
