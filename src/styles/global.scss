@@ -28,7 +28,8 @@
 }
 
 :root {
-  --font-family-default: 'Gen Jyuu Gothic L', system-ui, sans-serif, sans-serif;
+  --font-family-default: system-ui, sans-serif;
+  --font-family-secondary: 'Gen Jyuu Gothic L', system-ui, sans-serif;
   --font-family-special: 'Gen Jyuu Gothic L', 'Helvetica Neue', Helvetica, Arial,
     sans-serif;
 
@@ -82,6 +83,10 @@ html {
   background-color: var(--bg-white);
   color: var(--text-gray);
   color-scheme: light;
+  scroll-behavior: smooth;
+  @media (width > $breakpoint-md) {
+    scroll-padding-top: 56px;
+  }
 }
 
 body {

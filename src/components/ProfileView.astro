@@ -24,17 +24,22 @@ import { Image } from '@astrojs/image/components';
         </div>
         <div class="profile-stack__description">
           <p class="profile-name">鈴木壮大（すずきそうた）</p>
-          <p class="profile-summary">
-            1986年生まれ。フリーランスWebデザイナー/エンジニア。<br />
-            2016年より独学からWeb業界へ入り、東京のWeb制作会社へ入社、その後留学をへて福岡へ移住。<br
-            />
-            福岡のスタートアップ三社でフロントエンドエンジニアとして業務に従事。2023年にフリーランスへ転身。
-          </p>
+          <div class="profile-summary">
+            <p class="summary-paragraph">
+              1986年生まれ。フリーランスWebデザイナー。
+            </p>
+            <p class="summary-paragraph">
+              Web制作会社、スタートアップ三社を経て、2023年にフリーランスWebデザイナーとして独立。
+            </p>
+            <p class="summary-paragraph">
+              もともとはWebフロントエンドエンジニア。
+            </p>
+          </div>
         </div>
       </div>
 
       <div class="nav-contact">
-        <a href="/contact" class="c-button-border-gradient">
+        <a href="/#contact" class="c-button-border-gradient">
           <span class="c-text-gradient">ご相談はこちらから</span>
         </a>
       </div>
@@ -88,13 +93,11 @@ import { Image } from '@astrojs/image/components';
     }
 
     .profile-stack {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      display: grid;
+      place-items: center;
       gap: 24px;
       @media (width > $breakpoint-sm) {
-        flex-direction: row;
-        justify-content: center;
+        grid-template-columns: 160px auto;
         gap: 32px;
       }
     }
@@ -105,6 +108,11 @@ import { Image } from '@astrojs/image/components';
 
     .profile-summary {
       margin-top: 16px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .summary-paragraph {
       line-height: 1.7;
     }
 
@@ -113,7 +121,7 @@ import { Image } from '@astrojs/image/components';
       width: 120px;
       vertical-align: bottom;
       @media (width > $breakpoint-sm) {
-        width: 200px;
+        width: 160px;
       }
     }
 

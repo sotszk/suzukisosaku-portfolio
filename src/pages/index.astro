@@ -5,6 +5,7 @@ import ConceptView from '@components/ConceptView.astro';
 import ServiceView from '@components/ServiceView.astro';
 import WorksView from '@components/WorksView.astro';
 import ProfileView from '@components/ProfileView.astro';
+import ContactView from '@components/ContactView.astro';
 ---
 
 <Layout>
@@ -29,6 +30,10 @@ import ProfileView from '@components/ProfileView.astro';
       <ProfileView />
     </section>
 
+    <section id="contact">
+      <ContactView />
+    </section>
+
     <div class="thanks">
       <h2 class="thanks__heading">THANKS!</h2>
       <p class="thanks__message">最後までご覧頂き、ありがとうございました。</p>
@@ -43,11 +48,10 @@ import ProfileView from '@components/ProfileView.astro';
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 80vh;
-    background-color: #f8f8f8;
     text-align: center;
     padding: 64px 0;
     @media (width > $breakpoint-sm) {
+      min-height: 80vh;
       padding: 80px 0;
     }
   }
@@ -69,27 +73,3 @@ import ProfileView from '@components/ProfileView.astro';
     }
   }
 </style>
-
-<script>
-  const anchorEls = document.querySelectorAll('a[href^="/#"], a[href^="#"]');
-
-  anchorEls.forEach((anchorEl) => {
-    anchorEl.addEventListener('click', (evt) => {
-      evt.preventDefault();
-      const targetId = anchorEl
-        .getAttribute('href')
-        ?.split('/')
-        .find((str) => str[0] === '#');
-      if (!targetId) return;
-
-      const targetEl = document.querySelector(targetId);
-      if (!targetEl) return;
-
-      const rect = targetEl.getBoundingClientRect().top;
-      window.scrollTo({
-        top: rect + window.scrollY,
-        behavior: 'smooth',
-      });
-    });
-  });
-</script>
