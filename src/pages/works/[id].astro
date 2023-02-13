@@ -1,0 +1,45 @@
+---
+import Layout from '@layouts/Layout.astro';
+
+interface Page {
+  id: number;
+  title: string;
+  url: string;
+  description: string;
+  authorComments: string[];
+  images: string[];
+}
+
+const pages: Page[] = [
+  {
+    id: 1,
+    title: 'SFD21Japan',
+    url: 'https://sfd21japan.com',
+    description: 'このサイトはうんたらかんたら',
+    authorComments: ['ほげ', 'ふが'],
+    images: [],
+  },
+];
+
+export const getStaticPaths = () => {
+  return [{ params: { id: 1 } }];
+};
+
+const { id } = Astro.params;
+
+const page = pages.find((page) => page.id.toString() === id);
+
+console.log(Astro.props);
+---
+
+<Layout>
+  {
+    !page ? (
+      <div>not found</div>
+    ) : (
+      <main>
+        <h1>{page.title}</h1>
+      </main>
+    )
+  }
+</Layout>
