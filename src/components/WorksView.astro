@@ -18,7 +18,7 @@
               <img class="card__image" src="/images/works/item_01.jpg" alt="" />
             </div>
             <div class="card__info">
-              <h3>SFD21JAPAN 様</h3>
+              <h3 class="card__title">SFD21JAPAN 様</h3>
               <p>Coding</p>
             </div>
           </a>
@@ -76,11 +76,10 @@
   .items {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 32px;
     @media (width > $breakpoint-sm) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
     }
   }
 
@@ -131,13 +130,13 @@
     color: white;
     padding: 8px;
 
-    h3 {
-      line-height: 1.2;
-      font-weight: var(--fw-bold);
-      font-size: var(--fs-lg);
-    }
     p {
       font-size: var(--fs-sm);
     }
+  }
+  .card__title {
+    line-height: 1.2;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-lg);
   }
 </style>

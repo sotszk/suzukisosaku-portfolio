@@ -1,5 +1,5 @@
 ---
-import ExternalLink from './ExternalLink.astro';
+import CopyIcon from './common/CopyIcon.astro';
 ---
 
 <div class="wrapper">
@@ -12,13 +12,19 @@ import ExternalLink from './ExternalLink.astro';
     </header>
 
     <div class="section-body">
-      <p>
-        このサイトでは、現在お問い合わせを受け付けておりません。<br />
-        <!-- TODO: 別のポートフォリオ（外部サイト）のお問い合わせページへ飛ばす -->
-        <a class="link" href="/" target="_blank" rel="noopener"
-          >こちらのフォーム<ExternalLink /></a
-        >よりお問い合わせください。
-      </p>
+      <p>案件のご相談、お見積りのご相談はメールにて受け付けております。</p>
+      <p>下記のメールアドレスへお問い合わせください。</p>
+
+      <div id="email-copy" class="email-copy">
+        <p id="email-copy-text" class="email-copy__text">
+          hello@suzukisosaku.com
+        </p>
+        <button
+          title="クリックするとテキストをコピーします"
+          id="email-copy-button"
+          class="email-copy__button"><CopyIcon /></button
+        >
+      </div>
     </div>
   </div>
 
@@ -64,27 +70,119 @@ import ExternalLink from './ExternalLink.astro';
       margin: auto;
       margin-top: 48px;
       max-width: 600px;
-      text-align: center;
       @media (width > $breakpoint-sm) {
         margin-top: 80px;
       }
     }
 
     :where(.section-body) > p {
-      font-size: var(--fs-lg);
+      font-size: var(--fs-md);
       line-height: 1.7;
       @media (width > $breakpoint-sm) {
-        font-size: var(--fs-xl);
+        font-size: var(--fs-lg);
       }
     }
 
-    .link {
-      color: #6c27ff;
+    .email-copy {
+      position: relative;
+      margin: 24px auto 0;
+      display: grid;
+      max-width: 400px;
+      grid-template-columns: auto 60px;
+      align-items: center;
+      &::after {
+        display: none;
+        position: absolute;
+        right: 0;
+        bottom: -48px;
+        content: 'メールアドレスをコピーしました';
+        background-color: rgba(#222, 0.8);
+        padding: 8px 16px;
+        border-radius: 8px;
+        color: var(--text-white);
+        font-weight: var(--fw-bold);
+        transform: translateY(-10px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes animateDisplay {
+      10% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      90% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .email-copy--completed {
+      &::after {
+        display: block;
+        animation: animateDisplay 2.6s ease both;
+      }
+    }
+
+    .email-copy__text {
+      font-size: var(--fs-xl);
+      background-color: var(--text-white);
+      border: 1px solid var(--text-gray);
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-right-width: 0;
+      padding: 8px 24px;
+      @media (width > $breakpoint-sm) {
+        font-size: var(--fs-2xl);
+      }
+    }
+
+    .email-copy__button {
+      background-image: var(--gradient-primary);
+      color: var(--text-white);
+      border: 1px solid var(--text-gray);
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      height: 100%;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
+      transition: filter 0.2s ease;
       &:hover {
-        text-decoration: underline;
+        filter: brightness(1.2);
       }
     }
   </style>
 </div>
+
+<script>
+  const copyWrapperEl = document.querySelector('#email-copy');
+  const copyButtonEl = document.querySelector('#email-copy-button');
+  const copyTextEl = document.querySelector('#email-copy-text');
+
+  copyButtonEl?.addEventListener('click', (evt) => {
+    evt.preventDefault();
+
+    if (copyTextEl?.textContent) {
+      copyTextToClipboard(copyTextEl.textContent.trim());
+    }
+  });
+
+  function copyTextToClipboard(text: string) {
+    const type = 'text/plain';
+    const blob = new Blob([text], { type });
+    const data = [new ClipboardItem({ [type]: blob })];
+
+    navigator.clipboard
+      .write(data)
+      .then(() => {
+        if (!copyWrapperEl?.classList.contains('email-copy--completed')) {
+          copyWrapperEl?.classList.add('email-copy--completed');
+          setTimeout(() => {
+            copyWrapperEl?.classList.remove('email-copy--completed');
+          }, 3000);
+        }
+      })
+      .catch(() => {});
+  }
+</script>
