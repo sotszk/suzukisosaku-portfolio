@@ -4,6 +4,30 @@ import Layout from '@layouts/Layout.astro';
 
 <Layout title="ページが見つかりませんでした">
   <main>
-    <h1>404</h1>
+    <div class="page-container">
+      <h1 class="page-heading">404 Not Found</h1>
+      <p class="page-lead">ページが見つかりませんでした。</p>
+
+      <div class="footer">
+        <a href="/" class="c-button-border-gradient">
+          <span class="c-text-gradient">ホームへもどる</span>
+        </a>
+      </div>
+    </div>
   </main>
 </Layout>
+
+<style lang="scss">
+  .page-container {
+    padding-top: 69px + 100px;
+    text-align: center;
+  }
+  .page-heading {
+    font-size: var(--fs-4xl);
+    margin-bottom: 16px;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 48px;
+  }
+</style>

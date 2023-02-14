@@ -1,28 +1,26 @@
-<div class="wrapper">
-  <div class="firstview">
-    <div class="firstview-container">
-      <div class="copy">
-        <h1 class="copy__main">
-          <span class="text-gradient text-gradient--animated"
-            >SUZUKI SOSAKU</span
-          >
+<div class="firstview">
+  <div class="firstview__main">
+    <div class="firstview__container">
+      <div class="firstview__stack">
+        <h1 class="firstview__heading">
+          <span class="text-gradient text-gradient--animated">SOTA SUZUKI</span>
         </h1>
-        <p class="copy__above">
+        <p class="firstview__subheading">
           <span class="text-gradient text-gradient--animated"
             >Web Design & Development</span
           >
         </p>
       </div>
 
-      <p class="lead">
+      <p class="firstview__lead">
         Web サイト制作とコーディングのお仕事を承っております。<br
         />お気軽にお問い合わせください。
       </p>
     </div>
   </div>
 
-  <div class="nav-next">
-    <a href="/#concept" class="mouse"
+  <div class="firstview__next">
+    <a href="/#concept" class="firstview__next-mouse"
       ><span class="c-text-gradient">NEXT</span></a
     >
   </div>
@@ -31,31 +29,31 @@
 <style lang="scss">
   @import '../styles/breakpoint.scss';
 
-  .wrapper {
+  .firstview {
     position: relative;
-    min-height: calc(100vh - 90px);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    @media (width > $breakpoint-sm) {
-      min-height: calc(100vh - 110px);
+  }
+
+  .firstview__main {
+    position: relative;
+    @media (width > $breakpoint-md) {
+      top: 34px;
     }
   }
-  .firstview {
-    position: relative;
-    top: -30px; // 目測値
-  }
-  .firstview-container {
+  .firstview__container {
     max-width: 680px;
     padding: 0 16px;
     margin: 0 auto;
   }
-  .copy {
+  .firstview__stack {
     display: flex;
     flex-direction: column;
     font-family: var(--font-family-special);
   }
-  .copy__main {
+  .firstview__heading {
     order: 2;
     font-size: var(--fs-4xl);
     font-weight: var(--fw-exbold);
@@ -89,7 +87,7 @@
       }
     }
   }
-  .copy__above {
+  .firstview__subheading {
     order: 1;
     font-weight: var(--fw-bold);
     font-size: 1rem;
@@ -97,15 +95,15 @@
       font-size: var(--fs-lg);
     }
   }
-  .lead {
-    margin-top: 32px;
+  .firstview__lead {
+    margin-top: 16px;
     font-size: 0.875rem;
     @media (width > $breakpoint-sm) {
-      margin-top: 48px;
+      margin-top: 24px;
       font-size: 1rem;
     }
   }
-  .nav-next {
+  .firstview__next {
     position: absolute;
     left: 0;
     right: 0;
@@ -117,7 +115,7 @@
     }
   }
 
-  .mouse {
+  .firstview__next-mouse {
     position: relative;
     background-color: white;
     padding: 12px 4px;
