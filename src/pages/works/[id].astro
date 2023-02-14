@@ -38,8 +38,30 @@ console.log(Astro.props);
       <div>not found</div>
     ) : (
       <main>
-        <h1>{page.title}</h1>
+        <div class="page-container">
+          <h1 class="page-heading">ただいま準備中です。</h1>
+          <div class="footer">
+            <a href="/#works" class="c-button-border-gradient">
+              <span class="c-text-gradient">前の画面へもどる</span>
+            </a>
+          </div>
+        </div>
       </main>
     )
   }
 </Layout>
+
+<style lang="scss">
+  .page-container {
+    padding-top: 69px + 80px;
+    text-align: center;
+  }
+
+  .page-heading {
+    font-size: var(--fs-4xl);
+  }
+
+  .footer {
+    margin-top: 48px;
+  }
+</style>

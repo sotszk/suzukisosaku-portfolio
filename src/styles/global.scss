@@ -3,15 +3,6 @@
 @font-face {
   font-family: 'Gen Jyuu Gothic L';
   font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/genjyuul_normal_subset.woff2') format('woff2'),
-    url('/fonts/genjyuul_normal_subset.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Gen Jyuu Gothic L';
-  font-style: normal;
   font-weight: 600;
   font-display: swap;
   src: url('/fonts/genjyuul_medium_subset.woff2') format('woff2'),
@@ -28,10 +19,10 @@
 }
 
 :root {
-  --font-family-default: system-ui, sans-serif;
-  --font-family-secondary: 'Gen Jyuu Gothic L', system-ui, sans-serif;
+  --font-family-default: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
+    'Hiragino Sans', Meiryo, sans-serif;
   --font-family-special: 'Gen Jyuu Gothic L', 'Helvetica Neue', Helvetica, Arial,
-    sans-serif;
+    'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
 
   --fw-default: 400;
   --fw-bold: 600;
