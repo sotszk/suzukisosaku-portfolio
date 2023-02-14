@@ -36,8 +36,10 @@ const getDescription = () => description || baseDescription; // TODO: ちゃん�
   <title>{getTitle()}</title>
 
   <!-- 検索エンジンのクロールとインデックス作成の動作を制御 -->
-  <meta name="robots" content="index,follow" /><!-- すべての検索エンジン用 -->
-  <meta name="googlebot" content="index,follow" /><!-- Google固有 -->
+  <!-- <meta name="robots" content="index,follow" />すべての検索エンジン用 -->
+  <!-- <meta name="googlebot" content="index,follow" />Google固有 -->
+  <meta name="robots" content="noindex" />
+  <meta name="googlebot" content="noindex" />
 
   <meta name="google" content="notranslate" />
   <meta name="referrer" content="no-referrer" />

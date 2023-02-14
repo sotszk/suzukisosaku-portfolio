@@ -1,3 +1,6 @@
 {
-  "eslint.enable": false
+  "eslint.enable": false,
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///Users/sotasuzuki/ghq/github.com/sotszk/suzukisosaku-portfolio/.github/workflows/deploy.yml"
+  }
 }
