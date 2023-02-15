@@ -1,0 +1,138 @@
+---
+interface Props {
+  id: number;
+  title: string;
+  url: string;
+  description: string[] | string;
+  authorComments: string[];
+  images: { src: string }[];
+}
+
+const { title, description, url, authorComments, images } = Astro.props;
+---
+
+<section class="container">
+  <div class="content-stack">
+    <div class="content-stack__main">
+      <div class="stack-main">
+        <h1 class="site-title"><span class="c-text-gradient">{title}</span></h1>
+        <div class="site-description">
+          {
+            typeof description === 'string' ? (
+              <p class="site-description__paragraph">{description}</p>
+            ) : (
+              description.map((text) => (
+                <p class="site-description__paragraph">{text}</p>
+              ))
+            )
+          }
+        </div>
+        <section class="stack-main__section">
+          <h2 class="section-title">URL</h2>
+          <div class="section-content">
+            <a
+              class="section-content__link"
+              href={url}
+              target="_blank"
+              rel="noopener">{url}</a
+            >
+          </div>
+        </section>
+        <section class="stack-main__section">
+          <h2 class="section-title">制作について</h2>
+          <div class="section-content">
+            {
+              authorComments.map((comment) => (
+                <p class="author-comment">{comment}</p>
+              ))
+            }
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="content-stack__sub">
+      {
+        images.map((image) => (
+          <div>
+            <img src={image.src} alt="" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <a href="/#works" class="c-button-border-gradient">
+    <span class="c-text-gradient">前の画面へもどる</span>
+  </a>
+</div>
+
+<style lang="scss">
+  @import '../styles/breakpoint.scss';
+
+  .content-stack {
+    display: grid;
+    gap: 32px;
+    @media screen and (width > $breakpoint-md) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .content-stack__sub {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .stack-main {
+    display: grid;
+    gap: 24px;
+    @media screen and (width > $breakpoint-md) {
+      gap: 48px;
+    }
+  }
+
+  .stack-main__section {
+    display: grid;
+    gap: 8px;
+  }
+
+  .site-title {
+    font-size: var(--fs-4xl);
+    @media screen and (width > $breakpoint-md) {
+      font-size: var(--fs-5xl);
+    }
+  }
+
+  .site-description {
+    display: grid;
+    gap: 16px;
+  }
+
+  .site-description__paragraph {
+    white-space: pre-wrap;
+  }
+
+  .section-content__link {
+    color: #6c27ff;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .author-comment {
+    white-space: pre-wrap;
+    &:not(:first-child) {
+      margin-top: 16px;
+    }
+  }
+
+  .footer {
+    margin-top: 32px;
+    text-align: center;
+    @media screen and (width > $breakpoint-md) {
+      margin-top: 64px;
+    }
+  }
+</style>
