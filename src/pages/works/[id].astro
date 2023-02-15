@@ -1,23 +1,34 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import WorksDetailview from '@components/WorksDetailview.astro';
 
 interface Page {
   id: number;
   title: string;
   url: string;
-  description: string;
+  description: string[] | string;
   authorComments: string[];
-  images: string[];
+  images: { src: string }[];
 }
 
 const pages: Page[] = [
   {
     id: 1,
-    title: 'SFD21Japan',
+    title: 'SFD21JAPAN 様',
     url: 'https://sfd21japan.com',
-    description: 'このサイトはうんたらかんたら',
-    authorComments: ['ほげ', 'ふが'],
-    images: [],
+    description: [
+      '福岡の NPO 法人 SFD21JAPAN 様の Webサイトを制作しました。',
+      'SFD様は、青少年の立ち直り支援を行っている団体で、福岡市西区を拠点に活動しております。',
+    ],
+    authorComments: [
+      '本案件では、コーディングと CMS 環境の構築を担当させて頂きました。',
+      'スタイリングは BootStrap5 をベースに、SCSS でカスタム CSS を追加しています。',
+      'また、WordPress 開発環境として wp-env を用いて Docker でローカル開発環境を構築しました。',
+    ],
+    images: [
+      { src: '/images/works/item_01/img_01.jpg' },
+      { src: '/images/works/item_01/img_02.jpg' },
+    ],
   },
 ];
 
@@ -28,8 +39,6 @@ export const getStaticPaths = () => {
 const { id } = Astro.params;
 
 const page = pages.find((page) => page.id.toString() === id);
-
-console.log(Astro.props);
 ---
 
 <Layout>
@@ -39,12 +48,7 @@ console.log(Astro.props);
     ) : (
       <main>
         <div class="page-container">
-          <h1 class="page-heading">ただいま準備中です。</h1>
-          <div class="footer">
-            <a href="/#works" class="c-button-border-gradient">
-              <span class="c-text-gradient">前の画面へもどる</span>
-            </a>
-          </div>
+          <WorksDetailview {...page} />
         </div>
       </main>
     )
@@ -52,9 +56,15 @@ console.log(Astro.props);
 </Layout>
 
 <style lang="scss">
+  @import '../../styles/breakpoint.scss';
+
   .page-container {
-    padding-top: 69px + 80px;
-    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 48px;
+    @media screen and (width > $breakpoint-md) {
+      padding-top: 69px + 80px;
+      padding-bottom: 64px;
+    }
   }
 
   .page-heading {
